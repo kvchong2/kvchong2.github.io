@@ -1,0 +1,171 @@
+/*
+ * Global
+ */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+h1 {
+  text-align: center;
+  margin: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+/*
+ * Scroll container for the slides
+ */
+.scroll-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+  .scroll-container section {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+  }
+
+/*
+ * The scene (slides)
+ */
+.scene {
+  padding: 20px 40px;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+  /*
+   * Commentary
+   */
+  .scene .commentary {
+    font-size: 1.2em;
+    font-weight: 100;
+    padding: 20px 100px;
+    line-height: 1.5em;
+  }
+  /*
+   * The chart
+   */
+  .scene .chart-container {
+    flex-grow: 1;
+    align-content: center;
+  }
+    .scene .chart-container.side {
+      display: flex;
+      flex-direction: row;
+    }
+
+    /*
+     * The chart
+     */
+    .scene .chart-container .chart {
+      flex-grow: 1;
+    }
+      .scene .chart-container .chart .tooltip {
+        font-family: sans-serif;
+        position: absolute;
+        visibility: hidden;
+        background-color: white;
+        border: solid 1px black;
+        border-radius: 4px;
+        padding: 4px 20px;
+      }
+      .scene .chart-container .chart .small {
+        font-size: .6em;
+      }
+      .scene .chart-container .chart .medium {
+        font-size: .8em;
+      }
+
+    /*
+     * The chart controls
+     */
+    .scene .chart-container .controls {
+      text-align: center;
+      padding: 10px 20px;
+      background: #efefef;
+    }
+    .scene .chart-container.side .controls {
+      display: flex;
+      flex-direction: column;
+
+      text-align: left;
+      padding: 10px 20px;
+      background: transparent;
+    }
+      .scene .chart-container .controls label {
+        display: block;
+        margin-right: 10px;
+        cursor: pointer;
+      }
+      .scene .chart-container .controls div {
+        flex-grow: 1;
+        margin-bottom: 10px;
+      }
+      .scene .chart-container .controls h2 {
+        display: block;
+        margin: 0;
+        font-size: 1em;
+      }
+      .scene .chart-container .controls select {
+        width: 100%;
+        height: 100%;
+      }
+
+
+  /*
+   * Footnotes
+   */
+  .scene .footnote {
+    font-size: .8em;
+    padding: 0 100px;
+  }
+
+.pagination {
+  z-index: 1;
+  list-style: none;
+  padding: 0;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+  .pagination li a {
+    padding: 10px;
+    width: 4px;
+    height: 5px;
+    display: block;
+  }
+  .pagination li a:before {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+  /*   background: rgba(255, 255, 255, 0.48); */
+    background: rgba(0, 0, 0, 0.48);
+    border-radius: 10px;	
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  .pagination li.active a:before {
+    content: '';
+  /*   background-color: #FFFFFF; */
+    width: 14px;
+    height: 14px;
+    margin-top: -4px;
+    left: 7px;
+  /*   background-color: white; */
+    background-color: #000;
+    transform: scale(1.0);
+  }

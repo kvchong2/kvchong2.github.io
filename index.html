@@ -1,0 +1,135 @@
+<html>
+<head>
+  <script src="js/ext/d3.v7.min.js"></script>
+  <script src="js/ext/d3-annotation.min.js"></script>
+  <script src="js/constants.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/chart.js"></script>
+  <link rel="stylesheet" href="app.css"></link>
+</head>
+<body>
+  <div class="scroll-container">
+    <section class="introduction">
+      <div class="scene">
+        <h1>Leading Causes of Death in the United States, 1999-2017</h1>
+        <div class="commentary">
+          <p>The National Center for Health Statistics released a data set based on the death certificates of individuals in the United States and the District of Columbia (Washington D.C.).  A data normalization against the population was made and provided as an "age-adjusted death rate (per 100,000 population).  It is based on the U.S. census data that takes place every decade (10 years).</p>
+          <p>The following charts examine this data by looking at the rates for the causes of deaths relative to each other across the years that are available in the data.</p>
+          <p>Scroll up or down, use the up/down keys, or click on the pagination dots on the right edge of the scene to navigate.</p>
+        </div>
+        <div class="chart-container">
+          <div class="chart"></div>
+        </div>
+        <div class="footnote">
+          <p>The rates are based on the 2000 U.S. standard population.  Population before 2010 on non-census years are based on updated intercensal population estimates.</p>
+          <p>The population from 2011-2017 are based on the 2010 census estimate as of July 1, 2010.</p>
+          <p>The causes of death are classified by the <i>International Classification of Diseases, Tenth Revision(ICD-10)</i>.  Cause-of-death statistics are based on the underlying cause of death.</p>
+          <p>The source of this data set is from <a target="_blank" href="https://www.cdc.gov/nchs/data-visualization/mortality-leading-causes/index.htm">https://www.cdc.gov/nchs/data-visualization/mortality-leading-causes/index.htm</a>; NCHS, National Vital Statistics System, mortality data (see <a target="_blank" href="http://www.cdc.gov/nchs/deaths.htm">http://www.cdc.gov/nchs/deaths.htm</a>); and CDC WONDER (see <a target="_blank" href="http://wonder.cdc.gov">http://wonder.cdc.gov</a>).</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="chart-national-trends">
+      <div class="scene">
+        <h1>U.S. Death Trends for 10 Top Causes</h1>
+        <div class="commentary">
+          <p>Since 1999, there has been an overall decrease in age-adjusted death rates across the United States for all causes of death.</p>
+        </div>
+        <div class="chart-container">
+          <div class="chart"></div>
+          <div class="controls hidden"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chart-decreasing">
+      <div class="scene">
+        <h1>Decreasing Death Trends</h1>
+        <div class="commentary">
+          <p>The leading causes of death in the United States have consistently been heart disease and cancer.  Data indicates that death rates from both of these causes have been declining, significantly contributing to the overall decline in age-adjusted death rates across the country.</p>
+        </div>
+        <div class="chart-container">
+          <div class="chart"></div>
+          <div class="controls hidden"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chart-cardio">
+      <div class="scene">
+        <h1>Cardiovascular Disease Trends</h1>
+        <div class="commentary">
+          <p>Although the death rates have shown the most decline for heart disease, the death rates for related cardiovascular-related diseases such as stroke and diabetes, have also been decreasing, albeit at a lower pace.</p>
+        </div>
+        <div class="chart-container">
+          <div class="chart"></div>
+          <div class="controls hidden"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chart-increasing">
+      <div class="scene">
+        <h1>Increasing Death Trends</h1>
+        <div class="commentary">
+          <p>However, three causes of death have shown a rise in age-adjusted death rates in the United States.  This includes unintentional injuries, Alzheimer's disease, and suicide.</p>
+        </div>
+        <div class="chart-container">
+          <div class="chart"></div>
+          <div class="controls hidden"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chart-states">
+      <div class="scene">
+        <h1>State Trends Comparison</h1>
+        <div class="commentary">
+          <p>Between 1999 and 2017, data on deaths for each state reveals notable disparities in age-adjusted death rates per 100,000 population by 2017.  States like Mississippi, West Virginia, Alabama, Kentucky, and Oklahoma reported higher death rates compared to states such as Hawaii, California, New York, Connecticut, and Minnesota.</p>
+        </div>
+        <div class="chart-container">
+          <div class="chart"></div>
+          <div class="controls hidden"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chart-explore">
+      <div class="scene">
+        <h1>Explore Death Trends in the United States</h1>
+        <div class="commentary">
+          <p>Explore trends in causes of death across the US. Select the states and causes to compare the trends.</p>
+        </div>
+        <div class="chart-container side">
+          <div class="chart"></div>
+          <div class="controls">
+            <!--
+            <label class="input"><input type="radio" name="death_type" value="deaths_adjusted" checked="checked" />Age-adjusted deaths per 100,000</label>
+            <label class="input"><input type="radio" name="death_type" value="deaths" />Total deaths</label>
+            -->
+            <h2>Causes</h2>
+            <div>
+              <select name="causes" multiple="multiple">
+                <script>
+                  document.write(CAUSES.map(d => `<option value="${d[0]}">${d[1]}</option>`).join("\n"));
+                </script>
+              </select>
+            </div>
+            <h2>States</h2>
+            <div>
+              <select name="states" multiple="multiple">
+                <script>
+                  document.write(STATES.map(d => `<option>${d}</option>`).join("\n"));
+                </script>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="footnote">
+          <p>Use shift-click or control-click to select multiple items in the list.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
