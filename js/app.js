@@ -111,6 +111,29 @@ function startScroll() {
 //  document.body.appendChild(ul);
   document.body.appendChild(pagination);
 
+  // Add page up/down buttons
+  const pgup = document.createElement("a");
+  pgup.classList.add("pagebutton");
+  pgup.classList.add("up");
+  pgup.innerHTML = `<span class="arrowup"/>`;
+  pgup.onclick = function() {
+    location.hash = --currentScreen;
+    removeEvents();
+    setTimeout(addEvents, 500);
+  };
+  document.body.appendChild(pgup);
+
+  const pgdown = document.createElement("a");
+  pgdown.classList.add("pagebutton");
+  pgdown.classList.add("down");
+  pgdown.innerHTML = `<span class="arrowdown"/>`;
+  pgdown.onclick = function() {
+    location.hash = ++currentScreen;
+    removeEvents();
+    setTimeout(addEvents, 500);
+  };
+  document.body.appendChild(pgdown);
+
   // Add events
   function addEvents() {
     document.addEventListener("mousewheel", handleInput, false);
@@ -151,6 +174,16 @@ function startScroll() {
         currentScreen = sections.length - 1;
       } else {
         currentScreen = anchor;
+      }
+      if (currentScreen <= 0) {
+        pgup.classList.add("hidden");
+      } else {
+        pgup.classList.remove("hidden");
+      }
+      if (currentScreen >= sections.length - 1) {
+        pgdown.classList.add("hidden");
+      } else {
+        pgdown.classList.remove("hidden");
       }
       location.hash = currentScreen;
     }

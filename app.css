@@ -16,7 +16,7 @@ h1 {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 /*
@@ -169,3 +169,51 @@ h1 {
     background-color: #000;
     transform: scale(1.0);
   }
+
+.pagebutton {
+  display: block;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  z-index: 2;
+  right: 20px;
+  background-color: #ddd;
+  border-radius: 50%;
+  text-align: center;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.pagebutton:hover {
+  opacity: 1.0;
+  background-color: #ccc;
+}
+
+.pagebutton.up {
+  top: 20px;
+}
+
+.arrowup {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #777;
+  margin-top: 16px;
+}
+
+.pagebutton.down {
+  bottom: 20px;
+}
+
+.arrowdown {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #777;
+  margin-top: 16px;
+}
+
